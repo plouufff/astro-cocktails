@@ -1,0 +1,4 @@
+.astro
+.env.development
+dist
+node_modules
