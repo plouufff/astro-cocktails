@@ -3,8 +3,8 @@ export const prerender = false;
 
 import { getCollection } from 'astro:content';
 
-const cocktails = await getCollection('cocktails');
-const randomCocktail = cocktails[Math.floor(Math.random() * (cocktails.length - 1))];
+const cocktails = (await getCollection('cocktails'));
+const randomCocktail = cocktails[Math.floor(Math.random() * cocktails.length)];
 
 return Astro.redirect(randomCocktail.data.slug);
 ---
