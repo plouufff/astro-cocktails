@@ -6,10 +6,10 @@ import Badge from "./Badge.astro";
 const cocktails = await getCollection('cocktails');
 ---
 
-<header class="container flex items-center justify-between mb-10 mt-0 md:mt-4">
-    <div class="flex gap-2 items-center">
+<header class="container flex flex-wrap gap-4 sm:gap-2 items-center justify-between mb-10 mt-0 md:mt-4">
+    <div class="flex flex-wrap gap-2 grow sm:grow-0 items-center justify-between sm:justify-start">
         <a class="font-bold text-4xl text-blue-950" href="/">Cocktails !</a>
         <Badge label={`${cocktails.length} disponibles`}/>
     </div>
-    <a class="bg-blue-500 hover:bg-blue-600 text-white rounded p-2" href="/random">Un cocktail au hasard</a>
+    <a class="bg-blue-500 grow sm:grow-0 hover:bg-blue-600 text-white text-center rounded p-2" href="/random">Un cocktail au hasard</a>
 </header>
