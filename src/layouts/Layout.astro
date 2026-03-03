@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 
 import '../styles/global.css';
 ---
-
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -15,8 +14,10 @@ import '../styles/global.css';
         <meta name="description" content="recette de cocktails" />
     </head>
     <body class="container h-screen flex flex-col justify-between xl:max-w-4xl mx-auto p-2 md:p-4">
-        <Header/>
+      <Header/>
+      <main>
         <slot/>
-        <Footer/>
+      </main>
+      <Footer/>
     </body>
 </html>
