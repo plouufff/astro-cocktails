@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+
+import CocktailCard from "../components/CocktailCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+const cocktails = await getCollection('cocktails');
+---
+
+<Layout>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        {cocktails.map((cocktail) => <CocktailCard cocktail={cocktail}/>)}
+    </div>
+</Layout>

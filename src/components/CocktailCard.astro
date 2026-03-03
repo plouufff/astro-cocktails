@@ -1,0 +1,25 @@
+---
+import Badge from "../components/Badge.astro";
+import Title2 from "./Title2.astro";
+
+const { cocktail } = Astro.props;
+---
+<div is="cocktail-card"  class="bg-blue-50 flex flex-col hover:bg-blue-100 hover:cursor-pointer rounded p-3" data-slug={cocktail.data.slug}>
+    <Title2 class="text-center"><a href=`/${cocktail.data.slug}`>{cocktail.data.name}</a></Title2>
+    <div class="flex flex-wrap gap-2 grow items-center justify-center p-3 place-content-center">
+        {cocktail.data.ingredients.map((ingredient) => <Badge label={ingredient.name}/>)}
+    </div>
+</div>
+
+<script>
+    class CocktailCard extends HTMLElement {
+        connectedCallback() {
+            this.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.href = `/${this.dataset.slug}`;
+            })
+        }
+    }
+
+    customElements.define('cocktail-card', CocktailCard);
+</script>

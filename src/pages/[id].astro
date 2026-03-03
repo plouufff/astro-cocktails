@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+
+import Layout from "../layouts/Layout.astro";
+import Title2 from '../components/Title2.astro';
+
+export async function getStaticPaths() {
+  const cocktails = await getCollection('cocktails');
+  
+  return cocktails.map(cocktail => ({
+    params: { id: cocktail.id },
+    props: { cocktail },
+  }));
+}
+
+const { cocktail } = Astro.props;
+---
+
+<Layout>
+    <article class="flex flex-col grow justify-around">
+        <h1 class="capitalize font-bold text-blue-900 text-4xl my-4">{cocktail.data.name}</h1>
+        <section>
+            <Title2>Ingrédients</Title2>
+            <ul class="list-disc list-inside pl-3">
+                {cocktail.data.ingredients.map((ingredient) => <li>{ingredient.quantity} {ingredient.measure} de {ingredient.name}</li>)}
+            </ul>
+        </section>
+        <section class="py-2">
+            <Title2>Recette</Title2>
+            <ol class="list-decimal list-inside pl-3">
+                {cocktail.data.recipeSteps.map((step) => <li>{step}</li>)}
+            </ol>
+        </section>
+    </article>
+</Layout>
