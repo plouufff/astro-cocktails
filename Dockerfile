@@ -1,11 +1,12 @@
 FROM node:25.7.0-alpine AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+
 COPY . .
+
+RUN npm ci
 RUN npm run build
 
-FROM nginx:1.29.5 AS runtime
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+ENV HOST=0.0.0.0
+ENV PORT=8082
 EXPOSE 8082
+CMD ["node", "./dist/server/entry.mjs"]
