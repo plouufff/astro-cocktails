@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 
 const cocktails = await getCollection('cocktails');
-const randomCocktail = cocktails[Math.floor(Math.random() * cocktails.length - 1)];
+const randomCocktail = cocktails[Math.floor(Math.random() * (cocktails.length - 1))];
 
 return Astro.redirect(randomCocktail.data.slug);
 ---
