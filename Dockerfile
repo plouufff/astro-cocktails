@@ -1,9 +1,12 @@
 FROM node:25.7.0-alpine AS build
 WORKDIR /app
 
-COPY . .
+COPY package*.json .
 
 RUN npm ci
+
+COPY --exclude=package*.json . .
+
 RUN npm run build
 
 ENV HOST=0.0.0.0
