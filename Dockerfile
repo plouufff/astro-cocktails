@@ -5,7 +5,7 @@ COPY package*.json .
 
 RUN npm ci
 
-COPY --exclude=package*.json . .
+COPY --exclude=package*.json . ./
 
 RUN npm run build
 
