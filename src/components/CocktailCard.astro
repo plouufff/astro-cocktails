@@ -3,13 +3,11 @@ import Title2 from "./Title2.astro";
 
 const { cocktail } = Astro.props;
 ---
-<div>
-    <article is="cocktail-card" class="border-4 bg-blue-50 flex items-center justify-between hover:bg-blue-100 hover:cursor-pointer p-3" data-slug={cocktail.data.slug}>
-        <Title2 class="basis-1/2 md:basis-2/3"><a href=`/${cocktail.data.slug}`>{cocktail.data.name}</a></Title2>
-        <p class="basis-1/2 md:basis-1/3 text-right italic">
-            {cocktail.data.ingredients.map((ingredient) => ingredient.name).join(', ')}
-        </p>
-    </div>
+<article is="cocktail-card" class="border-4 bg-blue-50 flex items-center justify-between hover:bg-blue-100 hover:cursor-pointer p-3" data-slug={cocktail.data.slug}>
+    <Title2 class="basis-1/2 md:basis-2/3 capitalize cocktail-name"><a href=`/${cocktail.data.slug}`>{cocktail.data.name}</a></Title2>
+    <p class="basis-1/2 md:basis-1/3 text-right italic">
+        {cocktail.data.ingredients.map((ingredient) => ingredient.name).join(', ')}
+    </p>
 </div>
 
 <script>
@@ -24,3 +22,4 @@ const { cocktail } = Astro.props;
 
     customElements.define('cocktail-card', CocktailCard);
 </script>
+
