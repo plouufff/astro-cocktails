@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-noto-sans), sans-serif;
+}
