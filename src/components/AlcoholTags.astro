@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+const alcohols = await getCollection('alcohols');
+
+const { activeSlug } = Astro.props;
+---
+<ul class="flex flex-wrap gap-3 justify-center p-0">
+  {alcohols.map(
+    (alcohol) => {
+      const classNames = ["bg-primary", "p-2", "rounded", "text-lg", "md:text-xl", "text-white", "hover:bg-primary-darker"].concat(
+        alcohol.data.slug === activeSlug ? ["outline-offset-1", "outline-2", "outline-primary-dark"] : []
+      );
+
+      return (
+        <li class={classNames.concat().join(' ')}>
+          <a href={`/alcools/${alcohol.data.slug}`}>{alcohol.data.name}</a>
+        </li>
+      )
+    })}
+</ul>
+
+<style>
+  li.active {
+    outline-style: solid;
+  }
+</style>

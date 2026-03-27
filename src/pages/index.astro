@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
+import AlcoholTags from '../components/AlcoholTags.astro';
 import CocktailsList from '../components/CocktailsList.astro';
 import Title1 from '../components/Title1.astro';
 import Layout from "../layouts/Layout.astro";
@@ -8,6 +9,9 @@ import Layout from "../layouts/Layout.astro";
 const cocktails = await getCollection('cocktails');
 ---
 <Layout>
-    <Title1 class="my-4 md:my-8 lg:my-16">Choisissez <span class="text-primary-dark">votre poison</span></Title1>
+    <div class="flex flex-col gap-4 my-4 md:my-8 lg:my-16">
+        <Title1>Choisissez <span class="text-primary-dark">votre poison</span></Title1>
+        <AlcoholTags />
+    </div>
     <CocktailsList cocktails={cocktails.map((cocktail) => cocktail)} />
 </Layout>
