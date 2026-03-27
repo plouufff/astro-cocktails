@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -8,6 +9,7 @@ import '../styles/global.css';
 ---
 <html lang="fr">
     <head>
+        <ClientRouter />
         <Font cssVariable="--font-noto-sans" />
         <meta charset="UTF-8">
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -16,11 +18,13 @@ import '../styles/global.css';
         <title>Cocktails</title>
         <meta name="description" content="recette de cocktails" />
     </head>
-    <body class="container h-screen flex flex-col font-display justify-between mx-auto p-2 md:p-4 text-blue-900">
+    <body class="h-screen flex flex-col font-display justify-between mx-auto">
       <Header/>
-      <main>
-        <slot/>
-      </main>
+      <div class="border-y border-purple-100 bg-purple-50 flex grow">
+        <main class="container flex flex-col gap-4 grow mx-auto p-2 md:p-4">
+          <slot/>
+        </main>
+      </div>
       <Footer/>
     </body>
 </html>

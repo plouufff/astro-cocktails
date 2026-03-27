@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import Layout from "../layouts/Layout.astro";
+import Title1 from '../components/Title1.astro';
 import Title2 from '../components/Title2.astro';
 
 export async function getStaticPaths() {
@@ -17,8 +18,8 @@ const { cocktail } = Astro.props;
 ---
 
 <Layout>
-    <article class="flex flex-col grow justify-around">
-        <h1 class="capitalize font-black text-blue-900 text-6xl my-4">{cocktail.data.name}</h1>
+    <article class="flex flex-col grow">
+        <Title1 class="capitalize my-4 md:my-8 lg:my-16">{cocktail.data.name}</Title1>
         <section>
             <Title2>Ingrédients</Title2>
             <ul class="list-disc list-inside pl-3">

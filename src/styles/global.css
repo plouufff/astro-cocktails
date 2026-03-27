@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --color-primary: var(--color-violet-700);
+  --color-primary-dark: var(--color-violet-800);
+  --color-primary-darker: var(--color-violet-900);
   --font-display: var(--font-noto-sans), sans-serif;
 }
