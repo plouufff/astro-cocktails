@@ -1,6 +1,24 @@
 import { z, defineCollection } from 'astro:content';
 import { API_URL } from "astro:env/client";
 
+const alcohols = defineCollection({
+  loader: async () => {
+    const response = await fetch(`${API_URL}/ingredient-categories/alcohol`);
+    const data = await response.json();
+
+    return data.ingredients.map((ingredient) => ({
+      id: ingredient.slug,
+      name: ingredient.name,
+      slug: ingredient.slug,
+    }));
+  },
+  schema: z.strictObject({
+    id: z.string(),
+    name: z.string(),
+    slug: z.string(),
+  }),
+});
+
 const cocktails = defineCollection({
   loader: async () => {
     const response = await fetch(`${API_URL}/cocktails`);
@@ -34,4 +52,4 @@ const cocktails = defineCollection({
   }),
 });
 
-export const collections = { cocktails };
+export const collections = { alcohols, cocktails };
