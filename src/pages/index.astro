@@ -1,14 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 
-import CocktailCard from "../components/CocktailCard.astro";
+import CocktailsList from '../components/CocktailsList.astro';
+import Title1 from '../components/Title1.astro';
 import Layout from "../layouts/Layout.astro";
 
 const cocktails = await getCollection('cocktails');
 ---
-
 <Layout>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        {cocktails.map((cocktail) => <CocktailCard cocktail={cocktail}/>)}
-    </div>
+    <Title1 class="my-4 md:my-8 lg:my-16">Choisissez <span class="text-primary-dark">votre poison</span></Title1>
+    <CocktailsList cocktails={cocktails.map((cocktail) => cocktail)} />
 </Layout>
