@@ -2,6 +2,17 @@
 import CocktailCard from "./CocktailCard.astro";
 
 const { cocktails } = Astro.props;
+
+cocktails.sort((a, b) => {
+  const nameA = a.data.name.toLocaleLowerCase();
+  const nameB = b.data.name.toLocaleLowerCase();
+
+  if (nameA === nameB) {
+    return 0;
+  }
+
+  return nameA > nameB ? 1 : -1;
+});
 ---
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
   {cocktails.map((cocktail) => <CocktailCard cocktail={cocktail}/>)}
