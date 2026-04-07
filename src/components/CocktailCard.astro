@@ -11,7 +11,7 @@ const { cocktail } = Astro.props;
     <Title2 class="capitalize text-primary-dark">
         <a href=`/${cocktail.data.slug}`>{cocktail.data.name}</a>
     </Title2>
-    <p class="italic text-right text-sm">
+    <p class="italic text-center text-sm">
         {cocktail.data.ingredients.map((ingredient) => ingredient.name).join(', ')}
     </p>
 </div>
