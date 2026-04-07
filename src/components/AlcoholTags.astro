@@ -4,6 +4,18 @@ import { getCollection } from "astro:content";
 const alcohols = await getCollection('alcohols');
 
 const { activeSlug } = Astro.props;
+
+alcohols.sort((a, b) => {
+  const nameA = a.data.name.toLocaleLowerCase();
+  const nameB = b.data.name.toLocaleLowerCase();
+
+  if (nameA === nameB) {
+    return 0;
+  }
+
+  return nameA > nameB ? 1 : -1;
+});
+
 ---
 <ul class="flex flex-wrap gap-3 justify-center p-0">
   {alcohols.map(
