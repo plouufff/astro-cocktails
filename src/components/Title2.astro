@@ -1,12 +1,8 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, ...rest } = Astro.props;
+
 ---
-<h2 class={["font-bold", "my-2", "text-xl", "md:my-4", "md:text-2xl"].concat(className).join(' ')}>
+<h2 class={["font-bold", "my-2", "text-xl", "md:my-4", "md:text-2xl"].concat(className).join(' ')} {...rest}>
     <slot/>
 </h2>
 
-<style>
-  .cocktail-name {
-    font-weight: 900;
-  }
-</style>

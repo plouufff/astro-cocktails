@@ -4,14 +4,14 @@ import Title2 from "./Title2.astro";
 const { cocktail } = Astro.props;
 ---
 <article
-    class="border border-purple-100 bg-white flex flex-col hover:cursor-pointer items-center justify-between rounded p-3"
+    class="border border-purple-100 bg-white flex flex-col hover:bg-primary hover:border-primary hover:cursor-pointer items-center justify-start rounded-lg p-3"
     data-slug={cocktail.data.slug}
     is="cocktail-card"
 >
-    <Title2 class="capitalize text-primary-dark">
+    <Title2 class="capitalize">
         <a href=`/${cocktail.data.slug}`>{cocktail.data.name}</a>
     </Title2>
-    <p class="italic text-center text-sm">
+    <p class="italic text-center">
         {cocktail.data.ingredients.map((ingredient) => ingredient.name).join(', ')}
     </p>
 </div>
@@ -28,4 +28,14 @@ const { cocktail } = Astro.props;
 
     customElements.define('cocktail-card', CocktailCard);
 </script>
+
+<style>
+  h2 {
+    color: var(--color-primary);
+  }
+
+  article:hover * {
+    color: white;
+  }
+</style>
 
