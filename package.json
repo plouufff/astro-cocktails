@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/plouufff/cocktails#readme",
   "devDependencies": {
-    "typescript": "5.9.3"
+    "typescript": "6.0.2"
   },
   "dependencies": {
     "@astrojs/node": "10.0.3",
