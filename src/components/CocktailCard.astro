@@ -14,7 +14,7 @@ const { cocktail } = Astro.props;
     <p class="italic text-center">
         {cocktail.data.ingredients.map((ingredient) => ingredient.name).join(', ')}
     </p>
-</div>
+</article>
 
 <script>
     class CocktailCard extends HTMLElement {
