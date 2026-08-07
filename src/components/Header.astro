@@ -1,18 +1,24 @@
 ---
 import { getCollection } from "astro:content";
 
+import AlcoholTags from '../components/AlcoholTags.astro';
+
 const cocktails = await getCollection('cocktails');
 ---
-
-<header class="container flex gap-4 items-center justify-between mx-auto my-2 md:my-4 p-2 md:p-4">
+<header class="w-full max-w-6xl flex flex-col gap-6 mx-auto my-2 md:my-4 p-2 md:p-4">
+  <div class="flex items-center justify-between">
     <div class="flex gap-2 items-start ">
-      <a class="font-bold text-2xl md:text-4xl" href="/">&#127865;Cocktails</a>
-        <span class="bg-primary px-2 py-1 rounded text-xs text-white">{`${cocktails.length} recettes`}</span>
+      <a class="font-bold text-2xl md:text-3xl text-white" href="/">&#127865;Cocktails</a>
+      <span class="border border-secondary px-2 py-1 rounded-xl text-xs text-secondary">{`${cocktails.length} recettes`}</span>
     </div>
     <a
-        class="text-primary font-bold border-2 border-primary hover:bg-primary-dark hover:border-primary-dark hover:cursor-pointer hover:text-white p-1 md:p-2 rounded text-center"
-        href="/random"
+      class="border border-base-light font-bold hover:border-secondary hover:cursor-pointer hover:scale-105 p-1 md:p-2 rounded-xl text-center text-white"
+      href="/random"
     >
-        &#127922; Au hasard !
+      &#127922; Au hasard !
     </a>
+  </div>
+  <div class="flex flex-col">
+    <AlcoholTags />
+  </div>
 </header>

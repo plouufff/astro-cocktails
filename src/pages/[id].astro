@@ -16,19 +16,18 @@ export async function getStaticPaths() {
 
 const { cocktail } = Astro.props;
 ---
-
 <Layout>
     <article class="flex flex-col grow">
-        <Title1 class="capitalize my-4 md:my-8 lg:my-16">{cocktail.data.name}</Title1>
-        <section>
-            <Title2>Ingrédients</Title2>
-            <ul class="list-disc list-inside pl-3">
+        <Title1 class="capitalize my-4 md:my-8 lg:my-16 text-white">{cocktail.data.name}</Title1>
+        <section class="mb-2 md:mb-4">
+            <Title2 class="text-secondary mb-2 md:mb-4">Ingrédients</Title2>
+            <ul class="list-disc list-inside pl-3 text-white">
                 {cocktail.data.ingredients.map((ingredient) => <li>{ingredient.quantity} {ingredient.measure} de {ingredient.name}</li>)}
             </ul>
         </section>
         <section class="py-2">
-            <Title2>Recette</Title2>
-            <ol class="list-decimal list-inside pl-3">
+            <Title2 class="text-secondary mb-2 md:mb-4">Recette</Title2>
+            <ol class="list-decimal list-inside pl-3 text-white">
                 {cocktail.data.recipeSteps.map((step) => <li>{step}</li>)}
             </ol>
         </section>

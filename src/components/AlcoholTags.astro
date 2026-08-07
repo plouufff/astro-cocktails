@@ -15,20 +15,18 @@ alcohols.sort((a, b) => {
 
   return nameA > nameB ? 1 : -1;
 });
-
 ---
-<ul class="flex flex-wrap gap-3 justify-center">
+<ul class="flex flex-wrap gap-3">
   {alcohols.map(
     (alcohol) => {
-      const classNames = ["bg-primary", "p-2 md:p-3", "rounded-lg", "text-lg md:text-3xl", "text-white", "hover:bg-primary-darker"].concat(
-        alcohol.data.slug === activeSlug ? ["outline-offset-1", "outline-2", "outline-primary-dark"] : []
+    const classNames = ["bg-base", "border", "border-base-light", "flex", "align-items-center", "p-2", "rounded-xl", "text-lg md:text-2xl", "hover:border-secondary", "hover:shadow-xs", "hover:shadow-secondary"].concat(
+    alcohol.data.slug === activeSlug ? ["border-secondary", "text-secondary"] : ["text-white"]
       );
 
       return (
-        <li class={classNames.concat().join(' ')}>
+        <li class={classNames.concat('hover:scale-105').join(' ')}>
           <a href={`/alcools/${alcohol.data.slug}`}>{alcohol.data.name}</a>
         </li>
       )
     })}
 </ul>
-

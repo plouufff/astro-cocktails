@@ -20,11 +20,9 @@ import '../styles/global.css';
     </head>
     <body class="h-screen flex flex-col font-display justify-between mx-auto">
       <Header/>
-      <div class="border-y border-purple-100 bg-purple-50 flex grow">
-        <main class="container flex flex-col gap-4 grow mx-auto p-2 md:p-4">
-          <slot/>
-        </main>
-      </div>
+      <main class="w-full max-w-6xl flex flex-col gap-4 grow mx-auto p-2 md:p-4">
+        <slot/>
+      </main>
       <Footer/>
     </body>
 </html>
