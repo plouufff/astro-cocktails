@@ -2,9 +2,7 @@
 import { API_URL } from "astro:env/client";
 import { getCollection, getEntry } from 'astro:content';
 
-import AlcoholTags from "../../components/AlcoholTags.astro";
 import CocktailsList from '../../components/CocktailsList.astro';
-import Title1 from '../../components/Title1.astro';
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -18,8 +16,6 @@ export async function getStaticPaths() {
 
 const { alcohol } = Astro.props;
 
-const alcoholName = alcohol.data.name.charAt(0).toUpperCase() + alcohol.data.name.slice(1);
-
 const response = await fetch(`${API_URL}/cocktails?ingredient=${alcohol.data.id}`);
 const data = await response.json();
 
@@ -30,9 +26,5 @@ for (const element of data) {
 }
 ---
 <Layout>
-  <div class="flex flex-col gap-4 my-4 md:my-8 lg:my-16">
-      <Title1>Cocktails à base de <span class="text-primary">{alcoholName}</span></Title1>
-      <AlcoholTags activeSlug={alcohol.data.slug} />
-  </div>
   <CocktailsList cocktails={cocktails} />
 </Layout>

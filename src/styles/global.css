@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: var(--color-violet-700);
-  --color-primary-dark: var(--color-violet-800);
-  --color-primary-darker: var(--color-violet-900);
+  --color-base: #241640;
+  --color-base-darker: #180f2e;
+  --color-base-light: #471c50;
+  --color-primary: var(--color-fuchsia-500);
+  --color-primary-dark: var(--color-fuchsia-700);
+  --color-secondary: var(--color-lime-400);
   --font-display: var(--font-noto-sans), sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(40% 30% at 15% 10%, --alpha(var(--color-primary) / 20%), transparent 70%),
+    radial-gradient(40% 30% at 85% 25%, --alpha(var(--color-secondary) / 12%), transparent 90%),
+    var(--color-base-darker);
+}
+
+article, a {
+  transition: scale 0.2s;
 }
