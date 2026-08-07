@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { z } from "astro:zod";
+import { z } from "astro/zod";
 import { API_URL } from "astro:env/client";
 
 const alcohols = defineCollection({
