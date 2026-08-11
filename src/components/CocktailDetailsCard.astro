@@ -1,0 +1,59 @@
+---
+import Title1 from "./Title1.astro";
+import Title2 from "./Title2.astro";
+
+const { cocktail } = Astro.props;
+---
+<article class="bg-base border border-base-light flex flex-col gap-4 md:gap-8 grid grid-cols-2 p-4 md:p-8 rounded-xl">
+  <Title1 class="capitalize col-span-2 my-2 md:my-4 text-white">{cocktail.data.name}</Title1>
+  <section class="col-span-2 md:col-span-1 p-4">
+    <Title2 class="mb-4 text-secondary uppercase">Ingrédients</Title2>
+      <ul class="flex flex-col gap-2 list-inside pl-3 text-white">
+      {cocktail.data.ingredients.map((ingredient) => (
+      <li class="border-b border-dashed border-base-light flex gap-2 md:gap-4 justify-between pb-2">
+        <span>{ingredient.name}</span>
+        <span class="text-right">{ingredient.quantity} {ingredient.measure}</span>
+      </li>
+      ))}
+      </ul>
+  </section>
+  <section class="col-span-2 md:col-span-1 p-4">
+    <Title2 class="mb-4 text-secondary uppercase">Recette</Title2>
+    <ol class="flex flex-col gap-2 md:gap-4 list-inside text-white">
+      {cocktail.data.recipeSteps.map((step) => <li class="pl-2 relative">{step}</li>)}
+    </ol>
+  </section>
+</article>
+
+<style>
+  ul li span:first-child::first-letter {
+    text-transform: capitalize;
+  }
+
+  ol {
+    counter-reset: step;
+
+    li {
+      padding-left: 2.4rem;
+      counter-increment: step;
+    }
+  }
+
+  ol li::before {
+    align-items: center;
+    background-color: --alpha(var(--color-primary) / 20%);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    color: var(--color-primary);
+    content: counter(step);
+    display: flex;
+    font-size: 0.85rem;
+    font-weight: bold;
+    height: 1.7rem;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    width: 1.7rem;
+  }
+</style>
+
