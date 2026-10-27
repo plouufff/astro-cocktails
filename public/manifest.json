@@ -1,0 +1,11 @@
+{
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./favicon.ico"
+    }
+  ],
+  "name": "Recette de cocktails",
+  "short_name": "Cocktails",
+  "start_url": "/"
+}
