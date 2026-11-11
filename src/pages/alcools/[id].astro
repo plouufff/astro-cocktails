@@ -4,6 +4,7 @@ import { getCollection, getEntry } from 'astro:content';
 
 import CocktailsList from '../../components/CocktailsList.astro';
 import Layout from "../../layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const alcohols = await getCollection('alcohols');
@@ -19,10 +20,12 @@ const { alcohol } = Astro.props;
 const response = await fetch(`${API_URL}/cocktails?ingredient=${alcohol.data.id}`);
 const data = await response.json();
 
-const cocktails: unknown[] = [];
+const cocktails: CollectionEntry<'cocktails'>[] = [];
 for (const element of data) {
   const cocktail = await getEntry('cocktails', element.slug);
-  cocktails.push(cocktail);
+  if (cocktail) {
+    cocktails.push(cocktail);
+  }
 }
 ---
 <Layout>

@@ -1,4 +1,9 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  cocktail: CollectionEntry<'cocktails'>;
+}
+
 import Title1 from "./Title1.astro";
 import Title2 from "./Title2.astro";
 

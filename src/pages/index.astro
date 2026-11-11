@@ -7,5 +7,5 @@ import Layout from "../layouts/Layout.astro";
 const cocktails = await getCollection('cocktails');
 ---
 <Layout>
-  <CocktailsList cocktails={cocktails.map((cocktail) => cocktail)} />
+  <CocktailsList cocktails={cocktails} />
 </Layout>
