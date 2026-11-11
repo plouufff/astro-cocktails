@@ -2,33 +2,34 @@
   "name": "astro-cocktails",
   "version": "0.0.1",
   "description": "Cocktails frontend made with Astro",
-  "main": "index.ts",
-  "directories": {
-    "test": "tests"
+  "keywords": [],
+  "homepage": "https://github.com/plouufff/cocktails#readme",
+  "bugs": {
+    "url": "https://github.com/plouufff/cocktails/issues"
   },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
+  "license": "ISC",
+  "author": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plouufff/cocktails.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/plouufff/cocktails/issues"
+  "directories": {
+    "test": "tests"
   },
-  "homepage": "https://github.com/plouufff/cocktails#readme",
-  "devDependencies": {
-    "typescript": "5.9.3"
+  "main": "index.ts",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/node": "11.1.7",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.3.6",
     "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "5.9.3"
   }
 }

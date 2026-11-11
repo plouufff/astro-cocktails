@@ -1,4 +1,9 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  cocktails: CollectionEntry<'cocktails'>[];
+}
+
 import CocktailCard from "./CocktailCard.astro";
 
 const { cocktails } = Astro.props;
